@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mi Blog — JS/HTML/CSS</title>
+    <meta name="description" content="Blog personal hecho solo con JS, HTML y CSS.">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+    <script defer src="script.js"></script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Mi Blog — JS/HTML/CSS">
+    <meta property="og:description" content="Blog personal, ruteo hash, búsqueda, modo oscuro, comentarios, RSS.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+</head>
+<body>
+    <a class="skip" href="#main">Saltar al contenido</a>
+
+    <header class="site-header">
+        <div class="brand">
+        <button id="menuBtn" class="icon-btn" aria-label="Abrir menú" title="Menú">
+            ☰
+        </button>
+        <a href="#/" class="logo">Mi<span>Blog</span></a>
+        </div>
+
+        <div class="search-wrap">
+        <input id="search" type="search" placeholder="Buscar artículos…" aria-label="Buscar artículos">
+        <button id="clearSearch" class="icon-btn" aria-label="Limpiar búsqueda" title="Limpiar">✕</button>
+        </div>
+
+        <nav class="top-nav" aria-label="Principal">
+        <a href="#/">Inicio</a>
+        <a href="#/tags">Etiquetas</a>
+        <a href="#/about">Sobre mí</a>
+        <button id="themeToggle" class="pill">🌙 Oscuro</button>
+        <button id="rssBtn" class="pill" title="Generar RSS">RSS</button>
+        </nav>
+    </header>
+
+    <div id="drawer" class="drawer" aria-hidden="true">
+        <nav class="drawer-nav" aria-label="Menú">
+        <a href="#/" class="drawer-link">Inicio</a>
+        <a href="#/tags" class="drawer-link">Etiquetas</a>
+        <a href="#/about" class="drawer-link">Sobre mí</a>
+        </nav>
+    </div>
+
+    <div id="progress"></div>
+
+    <main id="main" class="container">
+        <!-- HOME / LISTA -->
+        <section id="home-view" class="view">
+        <div id="tagHeading" class="tag-heading" hidden></div>
+        <div id="posts" class="grid"></div>
+        <nav id="pager" class="pager" aria-label="Paginación"></nav>
+        </section>
+
+        <!-- POST -->
+        <section id="post-view" class="view" hidden>
+        <article id="article" class="article">
+            <header>
+            <h1 id="post-title"></h1>
+            <div class="meta">
+                <time id="post-date"></time> · <span id="post-read"></span>
+                <span id="post-tags" class="tags"></span>
+            </div>
+            </header>
+
+            <aside id="toc" class="toc" aria-label="Tabla de contenidos"></aside>
+
+            <figure id="post-cover-wrap" class="cover" hidden>
+            <img id="post-cover" alt="Portada" loading="lazy">
+            <figcaption id="post-cover-cap"></figcaption>
+            </figure>
+
+            <div id="post-content" class="prose"></div>
+
+            <section class="share">
+            <button id="shareBtn" class="pill">Compartir</button>
+            <button id="copyLinkBtn" class="pill">Copiar enlace</button>
+            </section>
+
+            <section id="comments" class="comments">
+            <h2>Comentarios</h2>
+            <form id="commentForm" class="comment-form">
+                <input id="cName" type="text" placeholder="Tu nombre" required>
+                <textarea id="cText" rows="3" placeholder="Escribe tu comentario…" required></textarea>
+                <button class="pill">Publicar</button>
+            </form>
+            <ul id="commentList" class="comment-list"></ul>
+            </section>
+        </article>
+        </section>
+
+        <!-- TAG CLOUD -->
+        <section id="tags-view" class="view" hidden>
+        <h1>Etiquetas</h1>
+        <div id="tagCloud" class="tag-cloud"></div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about-view" class="view" hidden>
+        <h1>Sobre mí</h1>
+        <p>Hola, soy <strong>Developer</strong>. Este blog está hecho con <em>HTML, CSS y JavaScript puros</em>. Sin frameworks.</p>
+        <ul>
+            <li>🔎 Búsqueda en vivo</li>
+            <li>🌓 Modo oscuro</li>
+            <li>🧭 TOC + progreso de lectura</li>
+            <li>💬 Comentarios (localStorage)</li>
+            <li>🗂️ Tags + paginación</li>
+            <li>📰 RSS instantáneo</li>
+        </ul>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <small>© <span id="year"></span> Mi Blog. Hecho con ♥ sin dependencias.</small>
+    </footer>
+
+    <!-- Templates -->
+    <template id="card-tpl">
+        <article class="card">
+        <a class="card-cover-link"><img class="card-cover" alt="" loading="lazy"></a>
+        <div class="card-body">
+            <a class="card-title"></a>
+            <p class="card-excerpt"></p>
+            <div class="card-meta">
+            <time></time>
+            <span class="tags"></span>
+            </div>
+        </div>
+        </article>
+    </template>
+
+    <template id="comment-tpl">
+        <li class="comment">
+        <div class="comment-head">
+            <strong class="c-name"></strong>
+            <time class="c-time"></time>
+        </div>
+        <p class="c-text"></p>
+        </li>
+    </template>
+
+    <noscript>Necesitas habilitar JavaScript para ver el contenido.</noscript>
+</body>
+</html>
