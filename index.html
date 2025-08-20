@@ -1,150 +1,234 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="light">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Mi Blog — JS/HTML/CSS</title>
-    <meta name="description" content="Blog personal hecho solo con JS, HTML y CSS.">
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
-    <script defer src="script.js"></script>
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Mi Blog — JS/HTML/CSS">
-    <meta property="og:description" content="Blog personal, ruteo hash, búsqueda, modo oscuro, comentarios, RSS.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Portafolio | Marco Saul Ramos Morales</title>
+<meta name="description" content="Portafolio profesional de Marco Saul Ramos Morales, Ingeniero de Sistemas en Cochabamba, Bolivia." />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="style.css" rel="stylesheet" />
 </head>
 <body>
-    <a class="skip" href="#main">Saltar al contenido</a>
+<!-- Skip link para accesibilidad -->
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-    <header class="site-header">
-        <div class="brand">
-        <button id="menuBtn" class="icon-btn" aria-label="Abrir menú" title="Menú">
-            ☰
+<!-- Header / Nav -->
+<header class="site-header" role="banner">
+    <div class="container site-header__inner">
+    <a href="#" class="brand" aria-label="Inicio">
+        <span class="brand__logo" aria-hidden="true">MS</span>
+        <span class="brand__name">Marco Saul</span>
+    </a>
+
+    <nav class="nav" role="navigation" aria-label="Principal">
+        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">
+        <span class="nav__toggle-line" aria-hidden="true"></span>
+        <span class="nav__toggle-line" aria-hidden="true"></span>
+        <span class="nav__toggle-line" aria-hidden="true"></span>
+        <span class="visually-hidden">Abrir menú</span>
         </button>
-        <a href="#/" class="logo">Mi<span>Blog</span></a>
+        <ul class="nav__list" id="siteNav">
+        <li><a class="nav__link" href="#sobre-mi">Sobre mí</a></li>
+        <li><a class="nav__link" href="#habilidades">Habilidades</a></li>
+        <li><a class="nav__link" href="#proyectos">Proyectos</a></li>
+        <li><a class="nav__link" href="#experiencia">Experiencia</a></li>
+        <li><a class="nav__link" href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <div class="header-actions">
+        <button id="themeToggle" class="btn btn--ghost" aria-pressed="false" aria-label="Cambiar tema">🌓</button>
+        <a class="btn btn--primary" href="#contacto">Contrátame</a>
+    </div>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="inicio" aria-labelledby="heroTitle">
+    <div class="container hero__grid">
+    <div class="hero__content">
+        <h1 id="heroTitle" class="hero__title">
+        Hola, soy <span class="text-gradient">Marco Saul Ramos Morales</span>
+        </h1>
+        <p class="hero__subtitle">Ingeniero de Sistemas – Cochabamba, Bolivia</p>
+        <p class="hero__lead">
+        Desarrollador web con enfoque en crear soluciones robustas, escalables y
+        orientadas a resultados. Me motiva transformar necesidades reales en productos digitales mantenibles.
+        </p>
+        <div class="hero__cta">
+        <a class="btn btn--primary" href="#proyectos">Ver proyectos</a>
+        <a class="btn btn--ghost" href="#habilidades">Habilidades</a>
         </div>
 
-        <div class="search-wrap">
-        <input id="search" type="search" placeholder="Buscar artículos…" aria-label="Buscar artículos">
-        <button id="clearSearch" class="icon-btn" aria-label="Limpiar búsqueda" title="Limpiar">✕</button>
-        </div>
-
-        <nav class="top-nav" aria-label="Principal">
-        <a href="#/">Inicio</a>
-        <a href="#/tags">Etiquetas</a>
-        <a href="#/about">Sobre mí</a>
-        <button id="themeToggle" class="pill">🌙 Oscuro</button>
-        <button id="rssBtn" class="pill" title="Generar RSS">RSS</button>
-        </nav>
-    </header>
-
-    <div id="drawer" class="drawer" aria-hidden="true">
-        <nav class="drawer-nav" aria-label="Menú">
-        <a href="#/" class="drawer-link">Inicio</a>
-        <a href="#/tags" class="drawer-link">Etiquetas</a>
-        <a href="#/about" class="drawer-link">Sobre mí</a>
-        </nav>
+        <ul class="contact-list" aria-label="Datos de contacto">
+        <li><a href="mailto:marco.saul@gmail.com">marco.saul@gmail.com</a></li>
+        <li><a href="tel:+59179962272">+591 79962272</a></li>
+        <li>
+            <a href="https://www.linkedin.com/in/marco-saul-ramos" target="_blank" rel="noopener noreferrer">
+            LinkedIn: Marco Saul Ramos
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/MSaulRM" target="_blank" rel="noopener noreferrer">
+            GitHub: MSaulRM
+            </a>
+        </li>
+        </ul>
     </div>
 
-    <div id="progress"></div>
+    <div class="hero__photo" aria-hidden="true">
+        <img 
+            src="saaul.jpg" 
+            srcset="
+            saaul-180.jpg 180w,
+            saaul-360.jpg 360w,
+            saaul-540.jpg 540w,
+            saaul-720.jpg 720w
+            "
+            sizes="(max-width: 600px) 180px, 180px"
+            alt="Marco Saul Ramos Morales" 
+            class="avatar-img"
+            loading="lazy" 
+            decoding="async"
+        />
+    </div>
+    </div>
+</section>
 
-    <main id="main" class="container">
-        <!-- HOME / LISTA -->
-        <section id="home-view" class="view">
-        <div id="tagHeading" class="tag-heading" hidden></div>
-        <div id="posts" class="grid"></div>
-        <nav id="pager" class="pager" aria-label="Paginación"></nav>
-        </section>
-
-        <!-- POST -->
-        <section id="post-view" class="view" hidden>
-        <article id="article" class="article">
-            <header>
-            <h1 id="post-title"></h1>
-            <div class="meta">
-                <time id="post-date"></time> · <span id="post-read"></span>
-                <span id="post-tags" class="tags"></span>
-            </div>
-            </header>
-
-            <aside id="toc" class="toc" aria-label="Tabla de contenidos"></aside>
-
-            <figure id="post-cover-wrap" class="cover" hidden>
-            <img id="post-cover" alt="Portada" loading="lazy">
-            <figcaption id="post-cover-cap"></figcaption>
-            </figure>
-
-            <div id="post-content" class="prose"></div>
-
-            <section class="share">
-            <button id="shareBtn" class="pill">Compartir</button>
-            <button id="copyLinkBtn" class="pill">Copiar enlace</button>
-            </section>
-
-            <section id="comments" class="comments">
-            <h2>Comentarios</h2>
-            <form id="commentForm" class="comment-form">
-                <input id="cName" type="text" placeholder="Tu nombre" required>
-                <textarea id="cText" rows="3" placeholder="Escribe tu comentario…" required></textarea>
-                <button class="pill">Publicar</button>
-            </form>
-            <ul id="commentList" class="comment-list"></ul>
-            </section>
+<main id="contenido">
+    <!-- Sobre mí -->
+    <section id="sobre-mi" class="section" aria-labelledby="sobreMiTitle">
+    <div class="container">
+        <h2 id="sobreMiTitle" class="section__title">Sobre mí</h2>
+        <p class="section__lead">
+        Soy Ingeniero de Sistemas con experiencia en desarrollo web full-stack. Disfruto trabajar con
+        frameworks modernos, metodologías ágiles y prácticas de <em>clean code</em> para entregar software
+        confiable y fácil de mantener.
+        </p>
+        <div class="grid two">
+        <article class="card card--soft">
+            <h3 class="card__title">Lo que me diferencia</h3>
+            <ul class="list-check">
+            <li>Código limpio, modular y orientado a pruebas.</li>
+            <li>Comunicación clara con stakeholders y foco en valor de negocio.</li>
+            <li>Automatización de flujos (CI/CD) y despliegues reproducibles.</li>
+            </ul>
         </article>
-        </section>
+        <article class="card card--soft">
+            <h3 class="card__title">Stack de preferencia</h3>
+            <p>
+            Frontend: Angular / React • Backend: Laravel / Node.js • BD: MySQL / PostgreSQL •
+            Cloud/DevOps: Docker, Firebase, GitHub Actions.
+            </p>
+        </article>
+        </div>
+    </div>
+    </section>
 
-        <!-- TAG CLOUD -->
-        <section id="tags-view" class="view" hidden>
-        <h1>Etiquetas</h1>
-        <div id="tagCloud" class="tag-cloud"></div>
-        </section>
+    <!-- Habilidades -->
+    <section id="habilidades" class="section section--alt" aria-labelledby="habilidadesTitle">
+    <div class="container">
+        <h2 id="habilidadesTitle" class="section__title">Habilidades</h2>
+        <p class="section__lead">Un vistazo a mis competencias técnicas y blandas.</p>
 
-        <!-- ABOUT -->
-        <section id="about-view" class="view" hidden>
-        <h1>Sobre mí</h1>
-        <p>Hola, soy <strong>Developer</strong>. Este blog está hecho con <em>HTML, CSS y JavaScript puros</em>. Sin frameworks.</p>
-        <ul>
-            <li>🔎 Búsqueda en vivo</li>
-            <li>🌓 Modo oscuro</li>
-            <li>🧭 TOC + progreso de lectura</li>
-            <li>💬 Comentarios (localStorage)</li>
-            <li>🗂️ Tags + paginación</li>
-            <li>📰 RSS instantáneo</li>
-        </ul>
-        </section>
-    </main>
+        <div class="skills" id="skillsGrid" aria-live="polite">
+        <!-- Render dinámico desde script.js -->
+        </div>
+    </div>
+    </section>
 
-    <footer class="site-footer">
-        <small>© <span id="year"></span> Mi Blog. Hecho con ♥ sin dependencias.</small>
-    </footer>
+    <!-- Proyectos -->
+    <section id="proyectos" class="section" aria-labelledby="proyectosTitle">
+    <div class="container">
+        <div class="section__header">
+        <h2 id="proyectosTitle" class="section__title">Proyectos</h2>
+        <div class="filters">
+            <label for="tagFilter" class="filters__label">Filtrar por etiqueta</label>
+            <select id="tagFilter" class="input">
+            <option value="__ALL__">Todos</option>
+            <!-- Opciones se inyectan desde script.js -->
+            </select>
+        </div>
+        </div>
 
-    <!-- Templates -->
-    <template id="card-tpl">
-        <article class="card">
-        <a class="card-cover-link"><img class="card-cover" alt="" loading="lazy"></a>
-        <div class="card-body">
-            <a class="card-title"></a>
-            <p class="card-excerpt"></p>
-            <div class="card-meta">
-            <time></time>
-            <span class="tags"></span>
+        <div class="grid three" id="projectsGrid" aria-live="polite">
+        <!-- Render dinámico desde script.js -->
+        </div>
+    </div>
+
+    <!-- Modal de proyecto -->
+    <dialog id="projectModal" class="modal" aria-labelledby="modalTitle" aria-modal="true">
+        <article class="modal__card">
+        <header class="modal__header">
+            <h3 id="modalTitle" class="modal__title"></h3>
+            <button class="modal__close" id="modalClose" aria-label="Cerrar">✕</button>
+        </header>
+        <div class="modal__body" id="modalBody"></div>
+        <footer class="modal__footer" id="modalFooter"></footer>
+        </article>
+    </dialog>
+    </section>
+
+    <!-- Experiencia -->
+    <section id="experiencia" class="section section--alt" aria-labelledby="experienciaTitle">
+    <div class="container">
+        <h2 id="experienciaTitle" class="section__title">Experiencia</h2>
+        <div class="timeline" id="timeline">
+        <!-- Render dinámico desde script.js -->
+        </div>
+    </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="section" aria-labelledby="contactoTitle">
+    <div class="container">
+        <h2 id="contactoTitle" class="section__title">Contacto</h2>
+        <p class="section__lead">
+        ¿Tienes un proyecto en mente? Hablemos. Respondo normalmente en 24–48h.
+        </p>
+        <form id="contactForm" class="form" novalidate>
+        <div class="grid two">
+            <div class="form__group">
+            <label for="name">Nombre</label>
+            <input id="name" name="name" class="input" type="text" placeholder="Tu nombre" required />
+            <small class="form__error" data-for="name"></small>
+            </div>
+            <div class="form__group">
+            <label for="email">Email</label>
+            <input id="email" name="email" class="input" type="email" placeholder="tu@correo.com" required />
+            <small class="form__error" data-for="email"></small>
             </div>
         </div>
-        </article>
-    </template>
-
-    <template id="comment-tpl">
-        <li class="comment">
-        <div class="comment-head">
-            <strong class="c-name"></strong>
-            <time class="c-time"></time>
+        <div class="form__group">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" class="input" rows="5" placeholder="Cuéntame sobre tu idea..." required></textarea>
+            <small class="form__error" data-for="message"></small>
         </div>
-        <p class="c-text"></p>
-        </li>
-    </template>
+        <div class="form__actions">
+            <button class="btn btn--primary" type="submit">Enviar</button>
+            <a class="btn btn--ghost" href="mailto:marco.saul@gmail.com?subject=Proyecto%20web">Enviar por correo</a>
+        </div>
+        <p id="formFeedback" role="status" class="form__feedback" aria-live="polite"></p>
+        </form>
+    </div>
+    </section>
+</main>
 
-    <noscript>Necesitas habilitar JavaScript para ver el contenido.</noscript>
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="container site-footer__inner">
+    <p>© <span id="year"></span> Marco Saul Ramos Morales. Todos los derechos reservados.</p>
+    <ul class="social">
+        <li><a href="mailto:marco.saul@gmail.com">Email</a></li>
+        <li><a href="tel:+59179962272">Teléfono</a></li>
+        <li><a href="https://www.linkedin.com/in/marco-saul-ramos" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/MSaulRM" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+    </ul>
+    </div>
+</footer>
+
+<button id="backToTop" class="back-to-top" aria-label="Volver arriba">↑</button>
+
+<script src="script.js" defer></script>
 </body>
 </html>
